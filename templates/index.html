@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- MAIN CSS -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+  <!-- FAVICON -->
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+
+  <title>Hello World Flask Websites</title>
+</head>
+
+<body>
+  <div class="container">
+    <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Description of your image">
+    <form action="greet" method="post">
+      {% for message in get_flashed_messages()%}
+      <p> {{message}} </p>
+      {% endfor %}
+      <input type="text" name="name_input">
+      <br><br>
+      <input type="submit" value="GREET" id="greet">
+    </form>
+  </div>
+
+</body>
+
+</html>
